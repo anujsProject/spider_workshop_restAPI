@@ -1,0 +1,21 @@
+<html >
+  <head>
+    <title>Cache Demo</title>
+  </head>
+
+  <body>
+    <p>
+      Data : <br />
+      <span id="fetchedData"></span>
+    </p>
+  </body>
+
+  <script>
+    fetch("http://localhost:4001/data")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        document.querySelector("#fetchedData").innerHTML = data;
+      });
+  </script>
+</html>
