@@ -1,43 +1,43 @@
 /*-------------- 
 Building a basic Rest API which includes all CRUD operations. 
-It will be code along.
+It will be a code along with the audience.
 ---------------*/
 
 
 const express = require("express");
-// 1. IMPORTING THE EXPRESS JS MODULE IN OUR APPLICATION
+//  Importing the express js module in our application
 
 
 const bodyParser = require("body-parser");
-//2. THIS MODULE HELPS US TO PARSE THE DATA WHICH IS SENT THE REQUEST BODY.
+//  This module helps us to parse the data which is sent the request body.
 
 
 const fs = require("fs");
-//3. fs MODULE PROVIDES US THE METHODS FROM WHICH WE CAN ACCESS AND MODIFY SYSTEM FILES.
+//  fs module provides us the methods from which we can access and modify system files.
 
 
 const app = express();
-/*  4. app is basically the main object which express provides, 
+/*  app is basically the main object which express provides, 
     and on this different kinds of methods are present which we can use to manage our application.
  */
 
 
 app.use(bodyParser.json());
-// 5. Allowing json type of data in the body of request object
+//  Allowing json type of data in the body of request object
 
 
 const filePath = "./data/users.json";
 
 
-// Starting the Server on port 3000
-// Port is logical address of a service. It helps us to identify the service running on a machine.
+//  Starting the Server on port 3000
+//  Port is logical address of a service. It helps us to identify the service running on a machine.
 app.listen(3000, () => {
   console.log("Server started at 3000");
 });
 
 
 
-// Whenever the request will for this endpoint, i.e "/", then the callback method will be called.
+//  Whenever the request will for this endpoint, i.e "/", then the callback method will be called.
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to the Rest API",
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 
 
-// Handling Get Request of all users
+//  Handling Get Request of all users
 const getAllUsers = (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -61,7 +61,7 @@ app.get("/users", getAllUsers);
 
 
 
-// Handling Post request
+//  Handling Post request
 const createUser = (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -89,7 +89,7 @@ app.post("/users", createUser);
 
 
 
-// Handling Get request of Single user
+//  Handling Get request of Single user
 const getUser = (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -108,7 +108,7 @@ app.get("/users/:userId", getUser);
 
 
 
-// Handling Patch request
+//  Handling Patch request
 const updateUser = (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -133,7 +133,7 @@ app.patch("/users/:userId", updateUser);
 
 
 
-// Handling Delete Request
+//  Handling Delete Request
 const deleteUser = (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -154,3 +154,6 @@ const deleteUser = (req, res) => {
 
 app.delete("/users/:userId", deleteUser);
 /* ---------------------------------------------  */
+
+
+

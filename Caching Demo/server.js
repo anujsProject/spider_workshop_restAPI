@@ -1,6 +1,6 @@
 /*-------------- 
 
-This is just for showing how drastically caching improves response time when it's cached on the client side.
+This is just for showing how caching improves response time drastically.
 
 ---------------*/
 
@@ -26,6 +26,6 @@ const test = async (req, res) => {
 
 app.get("/data", test);
 
-app.listen(4001, () => {
+app.listen(4000, () => {
   console.log("App listening on port 4000...");
 });
